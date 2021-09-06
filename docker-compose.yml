@@ -6,7 +6,9 @@ services:
     build: 
       context: node
     container_name: node-app
-    entrypoint: dockerize -wait tcp://node-db:3306 -timeout 20s docker-entrypoint.sh
+    entrypoint: >
+      sh -c "dockerize -wait tcp://node-db:3306 -timeout 20s chmod +x ./.docker/entrypoint.sh &&
+             ./.docker/entrypoint.sh"
     networks: 
       - node-network
     volumes: 
