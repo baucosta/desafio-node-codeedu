@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Full Cycle Project</title>
+</head>
+<body>
+    <div class="table-data">
+    <h2>Full Cycle</h2>
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>ame</th>
+        </tr>
+        
+        <%
+        if(peopleData.length!=0){
+        var i=1;
+        peopleData.forEach(function(data){
+        %>
+        <tr>
+            <td><%=data.id; %></td>
+            <td><%=data.name %></td>
+        </tr>
+        <%  i++; }) %>
+        <% } else{ %>
+            <tr>
+                <td colspan="7">No Data Found</td>
+            </tr>
+        <% } %>
+    </table>
+    </div>
+</body>
+</html>
